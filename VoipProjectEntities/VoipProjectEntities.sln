@@ -1,0 +1,97 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3D376718-83DF-4CFE-BF1F-B5D0F02CC188}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{F752235D-9633-4019-A25E-8B77C30FA37A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{FCB07550-A518-4CD3-8890-5961E381FF29}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{300DA654-A571-42E2-B4F8-FBD8084987DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{91750DCA-A5AC-4864-B336-8D32621763B0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VoipProjectEntities.Api", "src\API\VoipProjectEntities.Api\VoipProjectEntities.Api.csproj", "{0562B85C-1A4C-432F-8391-3C4EDD76966D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VoipProjectEntities.Application", "src\Core\VoipProjectEntities.Application\VoipProjectEntities.Application.csproj", "{0406398B-0DFC-42A7-815F-0E116676C081}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VoipProjectEntities.Domain", "src\Core\VoipProjectEntities.Domain\VoipProjectEntities.Domain.csproj", "{D87B4CAC-9032-47DE-B3D4-CB411619F3B9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VoipProjectEntities.Identity", "src\Infrastructure\VoipProjectEntities.Identity\VoipProjectEntities.Identity.csproj", "{CF76FD06-351E-4E1B-B87D-D063266AB3DB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VoipProjectEntities.Infrastructure", "src\Infrastructure\VoipProjectEntities.Infrastructure\VoipProjectEntities.Infrastructure.csproj", "{6DB780D2-FD20-499E-A25C-69A45D9B58A2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VoipProjectEntities.Persistence", "src\Infrastructure\VoipProjectEntities.Persistence\VoipProjectEntities.Persistence.csproj", "{35A66986-426E-428B-A00A-84061CB63600}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VoipProjectEntities.API.IntegrationTests", "test\VoipProjectEntities.API.IntegrationTests\VoipProjectEntities.API.IntegrationTests.csproj", "{B1D2E4F2-63C0-4076-9AE4-B89FC5442FB0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VoipProjectEntities.Application.UnitTests", "test\VoipProjectEntities.Application.UnitTests\VoipProjectEntities.Application.UnitTests.csproj", "{EB137E55-91BB-476E-A462-5D618D9F3A35}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VoipProjectEntities.Persistence.IntegrationTests", "test\VoipProjectEntities.Persistence.IntegrationTests\VoipProjectEntities.Persistence.IntegrationTests.csproj", "{E280BF84-93E4-4841-A9F0-176A8E1CC9B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0562B85C-1A4C-432F-8391-3C4EDD76966D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0562B85C-1A4C-432F-8391-3C4EDD76966D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0562B85C-1A4C-432F-8391-3C4EDD76966D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0562B85C-1A4C-432F-8391-3C4EDD76966D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0406398B-0DFC-42A7-815F-0E116676C081}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0406398B-0DFC-42A7-815F-0E116676C081}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0406398B-0DFC-42A7-815F-0E116676C081}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0406398B-0DFC-42A7-815F-0E116676C081}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D87B4CAC-9032-47DE-B3D4-CB411619F3B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D87B4CAC-9032-47DE-B3D4-CB411619F3B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D87B4CAC-9032-47DE-B3D4-CB411619F3B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D87B4CAC-9032-47DE-B3D4-CB411619F3B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF76FD06-351E-4E1B-B87D-D063266AB3DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF76FD06-351E-4E1B-B87D-D063266AB3DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF76FD06-351E-4E1B-B87D-D063266AB3DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF76FD06-351E-4E1B-B87D-D063266AB3DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DB780D2-FD20-499E-A25C-69A45D9B58A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DB780D2-FD20-499E-A25C-69A45D9B58A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DB780D2-FD20-499E-A25C-69A45D9B58A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DB780D2-FD20-499E-A25C-69A45D9B58A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35A66986-426E-428B-A00A-84061CB63600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35A66986-426E-428B-A00A-84061CB63600}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35A66986-426E-428B-A00A-84061CB63600}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35A66986-426E-428B-A00A-84061CB63600}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1D2E4F2-63C0-4076-9AE4-B89FC5442FB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1D2E4F2-63C0-4076-9AE4-B89FC5442FB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1D2E4F2-63C0-4076-9AE4-B89FC5442FB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1D2E4F2-63C0-4076-9AE4-B89FC5442FB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB137E55-91BB-476E-A462-5D618D9F3A35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB137E55-91BB-476E-A462-5D618D9F3A35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB137E55-91BB-476E-A462-5D618D9F3A35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB137E55-91BB-476E-A462-5D618D9F3A35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E280BF84-93E4-4841-A9F0-176A8E1CC9B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E280BF84-93E4-4841-A9F0-176A8E1CC9B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E280BF84-93E4-4841-A9F0-176A8E1CC9B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E280BF84-93E4-4841-A9F0-176A8E1CC9B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F752235D-9633-4019-A25E-8B77C30FA37A} = {3D376718-83DF-4CFE-BF1F-B5D0F02CC188}
+		{FCB07550-A518-4CD3-8890-5961E381FF29} = {3D376718-83DF-4CFE-BF1F-B5D0F02CC188}
+		{300DA654-A571-42E2-B4F8-FBD8084987DC} = {3D376718-83DF-4CFE-BF1F-B5D0F02CC188}
+		{0562B85C-1A4C-432F-8391-3C4EDD76966D} = {F752235D-9633-4019-A25E-8B77C30FA37A}
+		{0406398B-0DFC-42A7-815F-0E116676C081} = {FCB07550-A518-4CD3-8890-5961E381FF29}
+		{D87B4CAC-9032-47DE-B3D4-CB411619F3B9} = {FCB07550-A518-4CD3-8890-5961E381FF29}
+		{CF76FD06-351E-4E1B-B87D-D063266AB3DB} = {300DA654-A571-42E2-B4F8-FBD8084987DC}
+		{6DB780D2-FD20-499E-A25C-69A45D9B58A2} = {300DA654-A571-42E2-B4F8-FBD8084987DC}
+		{35A66986-426E-428B-A00A-84061CB63600} = {300DA654-A571-42E2-B4F8-FBD8084987DC}
+		{B1D2E4F2-63C0-4076-9AE4-B89FC5442FB0} = {91750DCA-A5AC-4864-B336-8D32621763B0}
+		{EB137E55-91BB-476E-A462-5D618D9F3A35} = {91750DCA-A5AC-4864-B336-8D32621763B0}
+		{E280BF84-93E4-4841-A9F0-176A8E1CC9B9} = {91750DCA-A5AC-4864-B336-8D32621763B0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6B2D736C-96D6-4507-B4CC-F90DA2CCA737}
+	EndGlobalSection
+EndGlobal
