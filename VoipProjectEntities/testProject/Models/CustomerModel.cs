@@ -15,7 +15,6 @@ namespace testProject.Models
         public string Password { get; set; }
 
         public string Email { get; set; }
-
         public bool ISMigrated { get; set; }
         public int CustomerTypeID { get; set; } //enum
         public bool ISTrialBalanceOpted { get; set; }

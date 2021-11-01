@@ -11,13 +11,9 @@ namespace VoipProjectEntities.Domain.Entities
     {
         [Key]
         public Guid AgentCustomerID { get; set; }
-
         public string AgentName { get; set; }
-
         public string Password { get; set; }
-
         public bool ISMigratedAt { get; set; }
-
 
         [Display(Name = "Customer")]
         public Guid? CustomerId { get; set; }

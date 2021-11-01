@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -21,13 +21,9 @@ namespace VoipProjectEntities.Domain.Entities
         [ForeignKey("CustomerID")]
         public virtual Customer Customers { get; set; }
 
-
-
         [Display(Name = "AgentCustomer")]
         public Guid? AgentCustomerID { get; set; }
         [ForeignKey("AgentCustomerID")]
         public virtual AgentCustomer AgentCustomers { get; set; }
-
-
     }
 }

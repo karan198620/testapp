@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Text;
-using VoipProjectEntities.Domain.Common;
 
-namespace VoipProjectEntities.Domain.Entities
+namespace VoipProjectEntities.Application.Features.Customers.Queries.GetCustomerList
 {
-    public class Customer : CommonField
+    public class CustomerListVm
     {
-        [Key]
-        public Guid CustomerId { get; set; }
+        public string CustomerId { get; set; }
         public string CustomerName { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
