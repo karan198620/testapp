@@ -2,12 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Voip.Domain.Entities;
-using Voip2.Domain.Entities;
-using VoipMainProject.Domain.Entities;
+using VoipProjectEntities.Domain.Entities;
 using VoipProjectEntities.Application.Contracts;
 using VoipProjectEntities.Domain.Common;
-using VoipProjectEntities.Domain.Entities;
 
 namespace VoipProjectEntities.Persistence
 {
@@ -35,14 +32,9 @@ namespace VoipProjectEntities.Persistence
         public DbSet<AgentCustomer> AgentCustomers { get; set; }
         public DbSet<BalanceCustomer> BalanceCustomers { get; set; }
         public DbSet<CallRecordingAgent> CallRecordingAgents { get; set; }
-
         public DbSet<DeviceAgent> DeviceAgents { get; set; }
-        public DbSet<MenuAccess> MenuAccesses { get; set; }
-
-       
-        
+        public DbSet<MenuAccess> MenuAccesses { get; set; } 
         public DbSet<TrailBalanceCustomer> TrailBalanceCustomers { get; set; }
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

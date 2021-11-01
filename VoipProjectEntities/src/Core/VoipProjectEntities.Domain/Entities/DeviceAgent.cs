@@ -3,13 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using VoipProjectEntities.Domain.Common;
 
-using Voip2.Domain.Common;
-using Voip2.Domain.Entities;
-using VoipMainProject.Domain.Entities;
-using VoipProjectEntities.Domain.Entities;
-
-namespace Voip.Domain.Entities
+namespace VoipProjectEntities.Domain.Entities
 {
     public class DeviceAgent:CommonField
     {   [Key]
@@ -24,13 +20,9 @@ namespace Voip.Domain.Entities
         [ForeignKey("CustomerID")]
         public virtual Customer Customers { get; set; }
 
-
-
         [Display(Name = "AgentCustomer")]
         public Guid? AgentCustomerID { get; set; }
         [ForeignKey("AgentCustomerID")]
         public virtual AgentCustomer AgentCustomers { get; set; }
-
-
     }
 }
