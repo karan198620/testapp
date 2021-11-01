@@ -38,6 +38,8 @@ namespace VoipProjectEntities.Persistence
 
         public DbSet<DeviceAgent> DeviceAgents { get; set; }
         public DbSet<MenuAccess> MenuAccesses { get; set; }
+
+       
         
         public DbSet<TrailBalanceCustomer> TrailBalanceCustomers { get; set; }
 
