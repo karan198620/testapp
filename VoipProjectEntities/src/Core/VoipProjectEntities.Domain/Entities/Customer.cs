@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text;
 using Voip2.Domain.Common;
 
-namespace Voip2.Domain.Entities
+namespace VoipProjectEntities.Domain.Entities
 {
     public class Customer : CommonField
     {

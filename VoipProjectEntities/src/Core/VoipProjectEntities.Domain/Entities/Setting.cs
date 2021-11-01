@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using VoipProjectEntities.Domain.Entities;
 using Voip2.Domain.Common;
 
-namespace Voip2.Domain.Entities
+namespace VoipProjectEntities.Domain.Entities
 {
     public class Setting : CommonField
     {

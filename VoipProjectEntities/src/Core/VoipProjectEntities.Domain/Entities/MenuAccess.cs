@@ -5,7 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 //using Voip.Domain.Common;
 using Voip2.Domain.Common;
-using Voip2.Domain.Entities;
+using VoipProjectEntities.Domain.Entities;
+//using Voip2.Domain.Entities;
 
 namespace Voip.Domain.Entities
 {
