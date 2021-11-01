@@ -40,7 +40,32 @@ namespace testProject.Controllers
             }
         }
         #endregion
-        
+
+        [HttpGet]
+        public IActionResult SignUp()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+
+        public ActionResult SignUp(CustomerModel customer)
+        {
+            HttpClient HC = new HttpClient();
+            HC.BaseAddress = new Uri("https://localhost:44330/api/Customer");
+
+            var insertedRecord =  HC.PutAsJsonAsync<CustomerModel>("CustomerModel", customer);
+            insertedRecord.Wait();
+
+            var recordDisplay = insertedRecord.Result;
+
+            if (recordDisplay.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Home", "Index");
+            }
+            return View();
+        }
         public class RootObject
         {
             public string status { get; set; }

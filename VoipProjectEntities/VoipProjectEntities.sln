@@ -33,7 +33,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VoipProjectEntities.Persist
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{536205EC-66A5-4F57-BADE-E2E425A52529}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testProject", "testProject\testProject.csproj", "{F5858E48-EBD1-4645-8CE8-F64CD205136F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "testProject", "testProject\testProject.csproj", "{F5858E48-EBD1-4645-8CE8-F64CD205136F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
