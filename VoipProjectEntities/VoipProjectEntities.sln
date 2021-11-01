@@ -31,6 +31,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VoipProjectEntities.Applica
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VoipProjectEntities.Persistence.IntegrationTests", "test\VoipProjectEntities.Persistence.IntegrationTests\VoipProjectEntities.Persistence.IntegrationTests.csproj", "{E280BF84-93E4-4841-A9F0-176A8E1CC9B9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{536205EC-66A5-4F57-BADE-E2E425A52529}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testProject", "testProject\testProject.csproj", "{F5858E48-EBD1-4645-8CE8-F64CD205136F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +77,10 @@ Global
 		{E280BF84-93E4-4841-A9F0-176A8E1CC9B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E280BF84-93E4-4841-A9F0-176A8E1CC9B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E280BF84-93E4-4841-A9F0-176A8E1CC9B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5858E48-EBD1-4645-8CE8-F64CD205136F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5858E48-EBD1-4645-8CE8-F64CD205136F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5858E48-EBD1-4645-8CE8-F64CD205136F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5858E48-EBD1-4645-8CE8-F64CD205136F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +98,8 @@ Global
 		{B1D2E4F2-63C0-4076-9AE4-B89FC5442FB0} = {91750DCA-A5AC-4864-B336-8D32621763B0}
 		{EB137E55-91BB-476E-A462-5D618D9F3A35} = {91750DCA-A5AC-4864-B336-8D32621763B0}
 		{E280BF84-93E4-4841-A9F0-176A8E1CC9B9} = {91750DCA-A5AC-4864-B336-8D32621763B0}
+		{536205EC-66A5-4F57-BADE-E2E425A52529} = {3D376718-83DF-4CFE-BF1F-B5D0F02CC188}
+		{F5858E48-EBD1-4645-8CE8-F64CD205136F} = {536205EC-66A5-4F57-BADE-E2E425A52529}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6B2D736C-96D6-4507-B4CC-F90DA2CCA737}
