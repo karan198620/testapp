@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
-//using Voip.Domain.Common;
-using Voip2.Domain.Common;
-using VoipProjectEntities.Domain.Entities;
-//using Voip2.Domain.Entities;
+using VoipProjectEntities.Domain.Common;
 
-namespace Voip.Domain.Entities
+
+
+namespace VoipProjectEntities.Domain.Entities
 {
     public class MenuAccess: CommonField
     {

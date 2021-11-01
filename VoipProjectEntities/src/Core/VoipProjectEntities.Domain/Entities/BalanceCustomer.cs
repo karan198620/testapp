@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
-using Voip2.Domain.Entities;
 
-namespace VoipMainProject.Domain.Entities
+
+namespace VoipProjectEntities.Domain.Entities
 {
     public class BalanceCustomer
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Voip2.Domain.Common
+namespace VoipProjectEntities.Domain.Common
 {
     public class CommonField
     {

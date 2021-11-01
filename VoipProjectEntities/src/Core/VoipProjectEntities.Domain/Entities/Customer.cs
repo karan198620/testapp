@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
-using Voip2.Domain.Common;
+using VoipProjectEntities.Domain.Common;
 
 namespace VoipProjectEntities.Domain.Entities
 {

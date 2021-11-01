@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
-using Voip2.Domain.Common;
-using VoipProjectEntities.Domain.Entities;
+using VoipProjectEntities.Domain.Common;
 
-namespace Voip2.Domain.Entities
+namespace VoipProjectEntities.Domain.Entities
 {
     public class SubscriptionCustomer : CommonField
     {

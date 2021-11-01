@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
-using VoipProjectEntities.Domain.Entities;
-using Voip2.Domain.Common;
+using VoipProjectEntities.Domain.Common;
+
+
 
 namespace VoipProjectEntities.Domain.Entities
 {
