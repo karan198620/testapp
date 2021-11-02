@@ -17,7 +17,7 @@ namespace testProject.Controllers
         #region "Get All Customers / Get All Existing Users"
         public async Task<IActionResult> Index()
         {
-            List<CustomerModel> UserList = new List<CustomerModel>();
+            List<CustomerViewModel> CustomerList = new List<CustomerViewModel>();
             RootObject result = new RootObject();
 
             using (var client = new HttpClient())
@@ -33,14 +33,15 @@ namespace testProject.Controllers
                     var UserResponse = Res.Content.ReadAsStringAsync().Result;
 
                     result = JsonConvert.DeserializeObject<RootObject>(UserResponse);
-                    UserList = result.data.ToList();
+                    CustomerList = result.data.ToList();
                 }
 
-                return View(UserList);
+                return View(CustomerList);
             }
         }
         #endregion
 
+        #region "Sign Up"
         [HttpGet]
         public IActionResult SignUp()
         {
@@ -49,13 +50,14 @@ namespace testProject.Controllers
 
 
         [HttpPost]
-
-        public ActionResult SignUp(CustomerModel customer)
+        public IActionResult SignUp(CustomerModel customer)
         {
+            customer.CustomerTypeID = 2;
+
             HttpClient HC = new HttpClient();
             HC.BaseAddress = new Uri("https://localhost:44330/api/Customer");
 
-            var insertedRecord =  HC.PutAsJsonAsync<CustomerModel>("CustomerModel", customer);
+            var insertedRecord = HC.PostAsJsonAsync<CustomerModel>("Customer", customer);
             insertedRecord.Wait();
 
             var recordDisplay = insertedRecord.Result;
@@ -64,12 +66,68 @@ namespace testProject.Controllers
             {
                 return RedirectToAction("Home", "Index");
             }
+
             return View();
         }
+        #endregion
+
+        #region "Login"
+        [HttpGet]
+        public IActionResult Login()
+        {
+            ViewBag.ShowAlert = false;
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(CustomerViewModel customer)
+        {
+            int custTypeid = GetEnumValue(Convert.ToString(customer.CustomerTypeID));
+
+            List<CustomerViewModel> CustomerList = new List<CustomerViewModel>();
+            RootObject result = new RootObject();
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(Baseurl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                string api = "api/Customer/" + customer.CustomerName + "/" + customer.Password;
+                HttpResponseMessage Res = await client.GetAsync(api);
+
+                if (Res.IsSuccessStatusCode)
+                {
+                    var UserResponse = Res.Content.ReadAsStringAsync().Result;
+
+                    result = JsonConvert.DeserializeObject<RootObject>(UserResponse);
+                    CustomerList = result.data.ToList();
+
+                    if(CustomerList.Count > 0)
+                    {
+                        return RedirectToAction("Home", "Index");
+                    }
+                    else
+                    {
+                        ViewBag.ShowAlert = true;
+                    }
+                }
+
+                return View();
+            }
+        }
+        #endregion
+
         public class RootObject
         {
             public string status { get; set; }
-            public CustomerModel[] data { get; set; }
+            public CustomerViewModel[] data { get; set; }
+        }
+
+        public int GetEnumValue(string Type)
+        {
+           int enumInt = (int)Enum.Parse(typeof(CustomerType), Type);
+           return enumInt;
         }
     }
 }

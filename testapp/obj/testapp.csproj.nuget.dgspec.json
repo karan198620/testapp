@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Testing projects\\testapp\\testapp\\testapp.csproj": {}
+    "C:\\Users\\LENOVO\\OneDrive\\Desktop\\TeamKaran_TestProjects\\testapp\\testapp\\testapp.csproj": {}
   },
   "projects": {
-    "E:\\Testing projects\\testapp\\testapp\\testapp.csproj": {
+    "C:\\Users\\LENOVO\\OneDrive\\Desktop\\TeamKaran_TestProjects\\testapp\\testapp\\testapp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Testing projects\\testapp\\testapp\\testapp.csproj",
+        "projectUniqueName": "C:\\Users\\LENOVO\\OneDrive\\Desktop\\TeamKaran_TestProjects\\testapp\\testapp\\testapp.csproj",
         "projectName": "testapp",
-        "projectPath": "E:\\Testing projects\\testapp\\testapp\\testapp.csproj",
-        "packagesPath": "C:\\Users\\X260\\.nuget\\packages\\",
-        "outputPath": "E:\\Testing projects\\testapp\\testapp\\obj\\",
+        "projectPath": "C:\\Users\\LENOVO\\OneDrive\\Desktop\\TeamKaran_TestProjects\\testapp\\testapp\\testapp.csproj",
+        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\LENOVO\\OneDrive\\Desktop\\TeamKaran_TestProjects\\testapp\\testapp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\X260\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
