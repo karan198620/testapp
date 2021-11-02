@@ -10,6 +10,7 @@ using VoipProjectEntities.Application.Features.Customers.Commands.DeleteCustomer
 using VoipProjectEntities.Application.Features.Customers.Commands.UpdateCustomer;
 using VoipProjectEntities.Application.Features.Customers.Queries.GetCustomerById;
 using VoipProjectEntities.Application.Features.Customers.Queries.GetCustomerList;
+using VoipProjectEntities.Application.Features.Customers.Queries.ValidateCustomer;
 
 namespace VoipProjectEntities.Api.Controllers.v1
 {
@@ -33,6 +34,14 @@ namespace VoipProjectEntities.Api.Controllers.v1
             return Ok(dtos);
         }
 
+        [HttpGet("{username}/{password}", Name = "ValidateCustomer")]
+        public async Task<ActionResult> ValidateCustomer(string username, string password)
+        {
+            var validateCustomerListQuery = new ValidateCustomerListQuery() { Username = username, Password = password };
+            var dtos = await _mediator.Send(validateCustomerListQuery);
+            return Ok(dtos);
+        }
+
         [HttpGet("{id}", Name = "GetCustomerById")]
         public async Task<ActionResult> GetCustomerById(string id)
         {
@@ -48,7 +57,6 @@ namespace VoipProjectEntities.Api.Controllers.v1
         }
 
         [HttpPut(Name = "UpdateCustomer")]
-        //[ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult> Update([FromBody] UpdateCustomerCommand updateCustomerCommand)
@@ -66,6 +74,6 @@ namespace VoipProjectEntities.Api.Controllers.v1
             var deleteCustomerCommand = new DeleteCustomerCommand() { CustomerId = id };
             await _mediator.Send(deleteCustomerCommand);
             return NoContent();
-        }
+        }        
     }
 }

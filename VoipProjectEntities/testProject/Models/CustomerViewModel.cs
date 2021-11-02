@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace testProject.Models
 {
-    public class CustomerModel
+    public class CustomerViewModel
     {
+        public string CustomerId { get; set; }
+
         [Required]
         public string CustomerName { get; set; }
 
@@ -21,7 +23,13 @@ namespace testProject.Models
         public bool ISMigrated { get; set; }
 
         [Required]
-        public int CustomerTypeID { get; set; } //enum
+        public CustomerType CustomerTypeID { get; set; } //enum
         public bool ISTrialBalanceOpted { get; set; }
+    }
+    public enum CustomerType
+    {
+        User = 0,
+        Agents = 1,
+        Demo = 2
     }
 }
