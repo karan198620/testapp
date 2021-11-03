@@ -29,7 +29,6 @@ namespace VoipProjectEntities.Application.Features.Customers.Queries.ValidateEma
             var customerList = _mapper.Map<List<CustomerListVm>>(allCustomers);
             var response = new Response<IEnumerable<CustomerListVm>>(customerList);
             return response;
-            // throw new NotImplementedException();
         }
     }
 }

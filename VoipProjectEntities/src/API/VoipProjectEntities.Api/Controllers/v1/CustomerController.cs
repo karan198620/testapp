@@ -43,15 +43,13 @@ namespace VoipProjectEntities.Api.Controllers.v1
             return Ok(dtos);
         }
 
-        [HttpGet("ValidateEmail", Name = "ValidateEmail")]
+        [HttpGet("ValidateEmail/{email}", Name = "ValidateEmail")]
         public async Task<ActionResult> ValidateEmail(string email)
         {
-            var validateEmailListQuery = new ValidateEmailListQuery() { Email= email};
+            var validateEmailListQuery = new ValidateEmailListQuery() { Email = email };
             var dtos = await _mediator.Send(validateEmailListQuery);
             return Ok(dtos);
         }
-
-
 
         [HttpGet("{id}", Name = "GetCustomerById")]
         public async Task<ActionResult> GetCustomerById(string id)
