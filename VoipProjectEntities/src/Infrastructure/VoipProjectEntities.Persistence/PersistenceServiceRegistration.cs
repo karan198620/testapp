@@ -19,6 +19,7 @@ namespace VoipProjectEntities.Persistence
             services.AddScoped<IEventRepository, EventRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IMenuRepository, MenuRepository>();
 
             return services;
         }
