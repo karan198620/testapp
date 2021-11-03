@@ -12,6 +12,8 @@ using VoipProjectEntities.Application.Features.Events.Commands.UpdateEvent;
 using VoipProjectEntities.Application.Features.Events.Queries.GetEventDetail;
 using VoipProjectEntities.Application.Features.Events.Queries.GetEventsExport;
 using VoipProjectEntities.Application.Features.Events.Queries.GetEventsList;
+using VoipProjectEntities.Application.Features.Menu.Commands.CreateMenu;
+using VoipProjectEntities.Application.Features.Menu.Queries.GetMenu;
 using VoipProjectEntities.Application.Features.Orders.GetOrdersForMonth;
 using VoipProjectEntities.Domain.Entities;
 
@@ -43,8 +45,10 @@ namespace VoipProjectEntities.Application.Profiles
 
             CreateMap<Customer, CustomerListVm>().ConvertUsing<CustomerVmCustomMapper>();
 
-            
+            CreateMap<MenuAccess, CreateMenuCommand>();
+            CreateMap<MenuAccess, CreateMenuDto>();
 
+            CreateMap<MenuAccess, MenuListVm>().ConvertUsing<MenuVmCustomMapper>();
         }
     }
 }

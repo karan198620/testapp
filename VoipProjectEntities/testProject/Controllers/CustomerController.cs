@@ -118,12 +118,7 @@ namespace testProject.Controllers
         }
         #endregion
 
-
-
-
-
-        //adding view of public forget password
-
+        #region "Forgot Password"
         [HttpGet]
         public IActionResult ForgetPassword()
         {
@@ -167,21 +162,57 @@ namespace testProject.Controllers
 
                 return View();
             }
+        }
+        #endregion
 
-
+        #region "Create Menu Access"
+        [HttpGet]
+        public IActionResult CreateMenu()
+        {
+            return View();
         }
 
+        [HttpPost]
+        public IActionResult CreateMenu(MenuAccessModel menuaccess)
+        {
+            //menuaccess.MenuAccessId = Guid.Parse("{BA0EB0EF-B69B-46FD-B8E2-41B4178AE725}");
+            //menuaccess.MenuLink = 2;
+            //menuaccess.IsAccess = false;
+            //menuaccess.CreatedAt = DateTime.Today;
+            //menuaccess.UpdatedAt = DateTime.Now.AddDays(1);
+            //menuaccess.CustomerID = Guid.Parse("{fe98f549-e790-4e9f-aa16-18c2292a2ee9}");
 
+            HttpClient HC = new HttpClient();
+            HC.BaseAddress = new Uri("https://localhost:44330/");
+
+            var insertedRecord = HC.PostAsJsonAsync("api/Menu", menuaccess);
+            insertedRecord.Wait();
+
+            var recordDisplay = insertedRecord.Result;
+
+            if (recordDisplay.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Home", "Index");
+            }
+
+            return View();
+        }
+        #endregion
+
+        #region "Root Object"
         public class RootObject
         {
             public string status { get; set; }
             public CustomerViewModel[] data { get; set; }
         }
+        #endregion
 
+        #region "Get Customer Type Enum Value"
         public int GetEnumValue(string Type)
         {
            int enumInt = (int)Enum.Parse(typeof(CustomerType), Type);
            return enumInt;
         }
+        #endregion
     }
 }
