@@ -118,6 +118,60 @@ namespace testProject.Controllers
         }
         #endregion
 
+
+
+
+
+        //adding view of public forget password
+
+        [HttpGet]
+        public IActionResult ForgetPassword()
+        {
+            ViewBag.ShowAlert = false;
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ForgetPassword(CustomerModel customer)
+        {
+            //int custTypeid = GetEnumValue(Convert.ToString(forgetPassword.Email));
+
+            List<CustomerViewModel> CustomerList = new List<CustomerViewModel>();
+            RootObject result = new RootObject();
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(Baseurl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                string api = "api/Customer/ValidateEmail/" + customer.Email;
+                HttpResponseMessage Res = await client.GetAsync(api);
+
+                if (Res.IsSuccessStatusCode)
+                {
+                    var UserResponse = Res.Content.ReadAsStringAsync().Result;
+
+                    result = JsonConvert.DeserializeObject<RootObject>(UserResponse);
+                    CustomerList = result.data.ToList();
+
+                    if (CustomerList.Count > 0)
+                    {
+                        return RedirectToAction("Home", "Index");
+                    }
+                    else
+                    {
+                        ViewBag.ShowAlert = true;
+                    }
+                }
+
+                return View();
+            }
+
+
+        }
+
+
         public class RootObject
         {
             public string status { get; set; }

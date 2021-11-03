@@ -42,6 +42,9 @@ namespace VoipProjectEntities.Application.Profiles
             CreateMap<Customer, CustomerDetailVm>().ReverseMap();
 
             CreateMap<Customer, CustomerListVm>().ConvertUsing<CustomerVmCustomMapper>();
+
+            
+
         }
     }
 }

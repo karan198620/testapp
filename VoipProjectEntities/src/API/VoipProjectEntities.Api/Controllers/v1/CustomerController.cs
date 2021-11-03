@@ -11,6 +11,7 @@ using VoipProjectEntities.Application.Features.Customers.Commands.UpdateCustomer
 using VoipProjectEntities.Application.Features.Customers.Queries.GetCustomerById;
 using VoipProjectEntities.Application.Features.Customers.Queries.GetCustomerList;
 using VoipProjectEntities.Application.Features.Customers.Queries.ValidateCustomer;
+using VoipProjectEntities.Application.Features.Customers.Queries.ValidateEmail;
 
 namespace VoipProjectEntities.Api.Controllers.v1
 {
@@ -41,6 +42,16 @@ namespace VoipProjectEntities.Api.Controllers.v1
             var dtos = await _mediator.Send(validateCustomerListQuery);
             return Ok(dtos);
         }
+
+        [HttpGet("ValidateEmail", Name = "ValidateEmail")]
+        public async Task<ActionResult> ValidateEmail(string email)
+        {
+            var validateEmailListQuery = new ValidateEmailListQuery() { Email= email};
+            var dtos = await _mediator.Send(validateEmailListQuery);
+            return Ok(dtos);
+        }
+
+
 
         [HttpGet("{id}", Name = "GetCustomerById")]
         public async Task<ActionResult> GetCustomerById(string id)
