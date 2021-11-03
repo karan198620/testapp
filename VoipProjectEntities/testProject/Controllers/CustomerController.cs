@@ -7,36 +7,31 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using testProject.Models;
+using testProject.Repositories;
 
 namespace testProject.Controllers
 {
     public class CustomerController : Controller
     {
-        string Baseurl = "https://localhost:44330/";
+        private readonly ICustomerRepo repo;
+        public CustomerController(ICustomerRepo _repo)
+        {
+            repo = _repo;
+        }
 
         #region "Get All Customers / Get All Existing Users"
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            List<CustomerViewModel> CustomerList = new List<CustomerViewModel>();
-            RootObject result = new RootObject();
+            List<CustomerModel> CustomerList = repo.GetAllCustomers();
+            ViewBag.ShowAlert = false;
 
-            using (var client = new HttpClient())
+            if (CustomerList.Count > 0)
             {
-                client.BaseAddress = new Uri(Baseurl);
-                client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                HttpResponseMessage Res = await client.GetAsync("api/Customer");
-
-                if (Res.IsSuccessStatusCode)
-                {
-                    var UserResponse = Res.Content.ReadAsStringAsync().Result;
-
-                    result = JsonConvert.DeserializeObject<RootObject>(UserResponse);
-                    CustomerList = result.data.ToList();
-                }
-
                 return View(CustomerList);
+            }
+            else
+            {
+               return  ViewBag.ShowAlert = true;
             }
         }
         #endregion
@@ -48,11 +43,10 @@ namespace testProject.Controllers
             return View();
         }
 
-
         [HttpPost]
         public IActionResult SignUp(CustomerModel customer)
         {
-            customer.CustomerTypeID = 2;
+            //customer.CustomerTypeID = 2;
 
             HttpClient HC = new HttpClient();
             HC.BaseAddress = new Uri("https://localhost:44330/api/Customer");
@@ -80,39 +74,19 @@ namespace testProject.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(CustomerViewModel customer)
+        public IActionResult Login(CustomerModel customer)
         {
-            int custTypeid = GetEnumValue(Convert.ToString(customer.CustomerTypeID));
+            int custTypeid = repo.GetEnumValue(Convert.ToString(customer.CustomerTypeID));
 
-            List<CustomerViewModel> CustomerList = new List<CustomerViewModel>();
-            RootObject result = new RootObject();
+            Task<List<CustomerModel>> CustomerList = repo.ValidateLogin(customer);
 
-            using (var client = new HttpClient())
+            if (CustomerList.Result.Count > 0)
             {
-                client.BaseAddress = new Uri(Baseurl);
-                client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                string api = "api/Customer/" + customer.CustomerName + "/" + customer.Password;
-                HttpResponseMessage Res = await client.GetAsync(api);
-
-                if (Res.IsSuccessStatusCode)
-                {
-                    var UserResponse = Res.Content.ReadAsStringAsync().Result;
-
-                    result = JsonConvert.DeserializeObject<RootObject>(UserResponse);
-                    CustomerList = result.data.ToList();
-
-                    if(CustomerList.Count > 0)
-                    {
-                        return RedirectToAction("Home", "Index");
-                    }
-                    else
-                    {
-                        ViewBag.ShowAlert = true;
-                    }
-                }
-
+                return RedirectToAction("Home", "Index");
+            }
+            else
+            {
+                ViewBag.ShowAlert = true;
                 return View();
             }
         }
@@ -120,46 +94,24 @@ namespace testProject.Controllers
 
         #region "Forgot Password"
         [HttpGet]
-        public IActionResult ForgetPassword()
+        public IActionResult ForgotPassword()
         {
             ViewBag.ShowAlert = false;
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> ForgetPassword(CustomerModel customer)
+        public IActionResult ForgotPassword(CustomerModel customer)
         {
-            //int custTypeid = GetEnumValue(Convert.ToString(forgetPassword.Email));
+            Task<List<CustomerModel>> CustomerList = repo.ForgotPassword(customer);
 
-            List<CustomerViewModel> CustomerList = new List<CustomerViewModel>();
-            RootObject result = new RootObject();
-
-            using (var client = new HttpClient())
+            if (CustomerList.Result.Count > 0)
             {
-                client.BaseAddress = new Uri(Baseurl);
-                client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                string api = "api/Customer/ValidateEmail/" + customer.Email;
-                HttpResponseMessage Res = await client.GetAsync(api);
-
-                if (Res.IsSuccessStatusCode)
-                {
-                    var UserResponse = Res.Content.ReadAsStringAsync().Result;
-
-                    result = JsonConvert.DeserializeObject<RootObject>(UserResponse);
-                    CustomerList = result.data.ToList();
-
-                    if (CustomerList.Count > 0)
-                    {
-                        return RedirectToAction("Home", "Index");
-                    }
-                    else
-                    {
-                        ViewBag.ShowAlert = true;
-                    }
-                }
-
+                return RedirectToAction("Home", "Index");
+            }
+            else
+            {
+                ViewBag.ShowAlert = true;
                 return View();
             }
         }
@@ -197,22 +149,6 @@ namespace testProject.Controllers
 
             return View();
         }
-        #endregion
-
-        #region "Root Object"
-        public class RootObject
-        {
-            public string status { get; set; }
-            public CustomerViewModel[] data { get; set; }
-        }
-        #endregion
-
-        #region "Get Customer Type Enum Value"
-        public int GetEnumValue(string Type)
-        {
-           int enumInt = (int)Enum.Parse(typeof(CustomerType), Type);
-           return enumInt;
-        }
-        #endregion
+        #endregion       
     }
 }
